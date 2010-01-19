@@ -3,17 +3,5 @@
   <script src="javascripts/jquery.js"></script>
   <script src="javascripts/webtoolkit.base64.js"></script>
   <script src="javascripts/simplenote.js"></script>
-  <script>
-    Simplenote.onLoginError = function() {
-      alert("Please check username and password!");
-    }
-    Simplenote.onLogin = function() { 
-      Simplenote.index(function(data) { 
-        alert(data);
-      });
-    };
-    if(localStorage.email && localStorage.password) {
-      Simplenote.login(localStorage.email, localStorage.password);
-    }
-  </script>
+  <script src="javascripts/background.js"></script>
 </html>

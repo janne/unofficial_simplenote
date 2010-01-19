@@ -1,0 +1,15 @@
+body {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+form {
+  margin: 10px;
+  text-align: left;
+}
+
+label {
+  display: block;
+}

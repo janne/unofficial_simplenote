@@ -1,0 +1,15 @@
+{
+  "name": "Simplenote",
+  "version": "1.0.0",
+  "description": "Access your Simplenote notes",
+  "icons": {
+    "128": "images/simplenote.png"
+  },
+  "background_page": "background.html",
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "images/simplenote.png",
+    "popup": "popup.html"
+  }
+}
+

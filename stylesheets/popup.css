@@ -1,0 +1,16 @@
+body {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+  margin: 0;
+}
+
+#content {
+  width: 400px;
+}
+
+#loader {
+  background-image: url('/images/loader.gif');
+  width: 64px;
+  height: 64px;
+  margin: 100px auto;
+}

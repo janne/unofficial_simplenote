@@ -1,1 +1,24 @@
-OPTIONS
+<html>
+  <head>
+    <title>Simplenote Options</title>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8' />
+    <link rel="stylesheet" href="stylesheets/options.css" type="text/css" media="all" />
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/options.js"></script>
+  </head>
+
+  <body>
+    <form>
+      <p>
+        <label for="email">Email</label>
+        <input type="text" id="email"></input>
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input type="password" id="password"></input>
+      </p>
+      <input type="submit" value="Save" onclick="save_options()"></input>
+    </form>
+    <div id="status"></div>
+  </body>
+</html>

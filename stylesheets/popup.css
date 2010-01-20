@@ -4,6 +4,7 @@ body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   margin: 0;
+  height: 500px;
 }
 
 form#search {

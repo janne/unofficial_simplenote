@@ -36,5 +36,13 @@ var Simplenote = {
         callback(data);
       }
     });
+  },
+  update: function(key, data, callback) {
+    jQuery.ajax({
+      type: "POST",
+      url: Simplenote.root + "note?key=" + key,
+      data: Base64.encode(data),
+      success: callback
+    });
   }
 };

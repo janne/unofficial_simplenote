@@ -18,5 +18,6 @@ $(document).ready(function() {
       $('#status').html("Please check username and password!");
     }
   });
+  $('input#q').focus();
 });
 

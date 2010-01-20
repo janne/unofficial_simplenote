@@ -65,11 +65,18 @@ function showNote(key) {
 
 function updateNote(key) {
   $('div#note div#toolbar input').attr('disabled', 'disabled');
-  chrome.extension.sendRequest({action: "update", key: key, data: $('div#note textarea').val()}, function() {
+  var data = $('div#note textarea').val();
+  if (data != '') {
+    chrome.extension.sendRequest({action: "update", key: key, data: data}, function() {
+      $('div#note textarea').hide();
+      $('div#note').hide();
+      showIndex();    
+    });
+  } else {
     $('div#note textarea').hide();
     $('div#note').hide();
     showIndex();    
-  });
+  }
 }
 
 function destroyNote(key) {

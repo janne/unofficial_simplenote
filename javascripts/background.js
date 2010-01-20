@@ -1,5 +1,5 @@
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-  if (request === "login") {
+  if (request.action === "login") {
     Simplenote.onLogin = function() { 
       sendResponse(true);
     };
@@ -9,8 +9,10 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     if(localStorage.email && localStorage.password) {
       Simplenote.login(localStorage.email, localStorage.password);
     }
-  } else if (request === "index") {
+  } else if (request.action === "index") {
     Simplenote.index(function(data) { sendResponse(data) });
+  } else if (request.action === "note") {
+    Simplenote.note(request.key, function(data) { sendResponse({key: request.key, text: data}) });
   }
 
 });

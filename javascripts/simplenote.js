@@ -27,5 +27,14 @@ var Simplenote = {
         callback(data);
       }
     });
+  },
+  note: function(key, callback) {
+    jQuery.ajax({
+      url: Simplenote.root + "note?key=" + key,
+      dataType: "text",
+      success: function(data) {
+        callback(data);
+      }
+    });
   }
 };

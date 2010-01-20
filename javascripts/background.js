@@ -17,6 +17,8 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
     } else {
       Simplenote.note(request.key, function(data) { sendResponse({key: request.key, text: data}) });
     }
+  } else if (request.action === "destroy") {
+    Simplenote.destroy(request.key, sendResponse);
   } else if (request.action === "update") {
     Simplenote.update(request.key, request.data, sendResponse);
   }

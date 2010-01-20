@@ -15,16 +15,16 @@ div#toolbar {
   border: solid 1px #ccc;
 }
 
+div#note div#toolbar input {
+  width: 15%;
+}
+
+div#note div#toolbar input#destroy {
+  float: right;
+}
+
 div#index div#toolbar input#q {
   width: 60%; 
-}
-
-div#note div#toolbar input#save {
-  width: 15%;
-}
-
-div#index div#toolbar input#search {
-  width: 15%;
 }
 
 div#note textarea {

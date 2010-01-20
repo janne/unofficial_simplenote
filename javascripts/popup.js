@@ -18,7 +18,10 @@ function showIndex() {
   $('#loader').show();
   chrome.extension.sendRequest({action: "index"}, function(data) {
     for(var i=0; i < (data.length > 10 ? 10 : data.length); i++) {
-      if (!data[i].deleted) {
+      if (data[i].deleted) {
+        var note = $('#' + data[i].key);
+        if (note.length > 0) { note.hide(); }
+      } else {
         if ($('#' + data[i].key).length == 0) {
           $('#notes').append("<li id='" + data[i].key + "'></li>");
         }
@@ -39,6 +42,7 @@ function showNote(key) {
   $('#loader').show();
   $('div#index').hide();
   $('div#note').show();
+  $('div#note div#toolbar input').removeAttr('disabled');
   chrome.extension.sendRequest({action: "note", key: key}, function(data) {
     $('div#note textarea').val(data.text);
     $('div#note textarea').show();
@@ -46,13 +50,28 @@ function showNote(key) {
     $('div#note input#save').click(function() {
       updateNote(key);
     });
+    $('div#note input#destroy').unbind();
+    $('div#note input#destroy').click(function() {
+      destroyNote(key);
+    });
     $('#loader').hide();
   });
 }
 
 function updateNote(key) {
-  chrome.extension.sendRequest({action: "update", key: key, data: $('div#note textarea').val()});
-  $('div#note textarea').hide();
-  $('div#note').hide();
-  showIndex();    
+  $('div#note div#toolbar input').attr('disabled', 'disabled');
+  chrome.extension.sendRequest({action: "update", key: key, data: $('div#note textarea').val()}, function() {
+    $('div#note textarea').hide();
+    $('div#note').hide();
+    showIndex();    
+  });
+}
+
+function destroyNote(key) {
+  $('div#note div#toolbar input').attr('disabled', 'disabled');
+  chrome.extension.sendRequest({action: "destroy", key: key}, function() {
+    $('div#note textarea').hide();
+    $('div#note').hide();
+    showIndex();    
+  });
 }

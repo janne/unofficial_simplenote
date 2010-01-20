@@ -37,6 +37,12 @@ var Simplenote = {
       }
     });
   },
+  destroy: function(key, callback) {
+    jQuery.ajax({
+      url: Simplenote.root + "delete?key=" + key,
+      success: callback
+    });
+  },
   update: function(key, data, callback) {
     var url = Simplenote.root + "note";
     if (key) { url += "?key=" + key; }

@@ -14,11 +14,14 @@ form#search {
 }
 
 form#search input#q {
-  width: 70%; 
+  width: 60%; 
 }
 
 form#search input#search {
-  width: 20%;
+  width: 15%;
+}
+
+form#search input#new {
   float: right;
 }
 

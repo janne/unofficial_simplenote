@@ -1,11 +1,47 @@
+* { margin: 0; padding: 0 }
+
 body {
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   margin: 0;
 }
 
-#content {
+form#search {
+  padding: 8px;
+  background: #eee;
+  border: solid 1px #ccc;
+}
+
+form#search input#q {
+  width: 70%; 
+}
+
+form#search input#search {
+  width: 20%;
+  float: right;
+}
+
+#index {
   width: 400px;
+  padding: 10px;
+}
+
+ul#notes li {
+  padding-top: 4px; 
+  padding-bottom: 4px; 
+}
+
+ul#notes {
+  list-style: none;
+}
+
+div.abstract {
+  color: #aaa;  
+  font-size: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 #loader {

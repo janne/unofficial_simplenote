@@ -7,10 +7,16 @@
     <script type="text/javascript" src="javascripts/popup.js"></script>
   </head>
   <body>
-    <div id="content">
+    <div id="index">
+      <form id="search">
+        <input type="text" id="q"></input>
+        <input type="submit" id="search" value="Search"></input>
+      </form>
       <div id="loader"></div>
       <ul id="notes"></ul>
-      <div id="status"></div>
     </div>
+    <div id="note" class="hidden">
+    </div>
+    <div id="status"></div>
   </body>
 </html>

@@ -43,6 +43,11 @@ function showNote(key) {
   $('div#index').hide();
   $('div#note').show();
   $('div#note div#toolbar input').removeAttr('disabled');
+  if (key === undefined) {
+    $('div#note div#toolbar input#destroy').hide();
+  } else {
+    $('div#note div#toolbar input#destroy').show();
+  }
   chrome.extension.sendRequest({action: "note", key: key}, function(data) {
     $('div#note textarea').val(data.text);
     $('div#note textarea').show();

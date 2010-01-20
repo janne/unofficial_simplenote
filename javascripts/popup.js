@@ -3,6 +3,9 @@ $(document).ready(function() {
   chrome.extension.sendRequest({action: "login"}, function(success) {
     if (success) {
       showIndex();
+      $('div#index div#toolbar input#new').click(function() {
+        showNote();
+      });
     } else {
       $('#loader').hide();
       $('#status').html("Please check username and password!");

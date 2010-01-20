@@ -12,7 +12,11 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   } else if (request.action === "index") {
     Simplenote.index(function(data) { sendResponse(data) });
   } else if (request.action === "note") {
-    Simplenote.note(request.key, function(data) { sendResponse({key: request.key, text: data}) });
+    if (request.key === undefined) {
+      sendResponse({text:""});
+    } else {
+      Simplenote.note(request.key, function(data) { sendResponse({key: request.key, text: data}) });
+    }
   } else if (request.action === "update") {
     Simplenote.update(request.key, request.data, sendResponse);
   }

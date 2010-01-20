@@ -38,9 +38,11 @@ var Simplenote = {
     });
   },
   update: function(key, data, callback) {
+    var url = Simplenote.root + "note";
+    if (key) { url += "?key=" + key; }
     jQuery.ajax({
       type: "POST",
-      url: Simplenote.root + "note?key=" + key,
+      url: url,
       data: Base64.encode(data),
       success: callback
     });

@@ -8,16 +8,25 @@
   </head>
   <body>
     <div id="index">
-      <form id="search">
-        <input type="text" id="q"></input>
-        <input type="submit" id="search" value="Search"></input>
-        <input type="submit" id="new" value="New Note"></input>
+      <form>
+        <div id="toolbar">
+          <input type="text" id="q"></input>
+          <input type="submit" id="search" value="Search"></input>
+          <input type="submit" id="new" value="New Note"></input>
+        </div>
       </form>
-      <div id="loader"></div>
       <ul id="notes"></ul>
     </div>
     <div id="note" class="hidden">
+      <form>
+        <div id="toolbar">
+          <input type="submit" id="save" value="Save"></input>
+        </div>
+        <textarea class="hidden"></textarea>
+        </div>
+      </form>
     </div>
+    <div id="loader"></div>
     <div id="status"></div>
   </body>
 </html>

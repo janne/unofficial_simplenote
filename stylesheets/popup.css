@@ -5,29 +5,36 @@ body {
   font-size: 14px;
   margin: 0;
   height: 500px;
+  width: 400px;
+  padding: 10px;
 }
 
-form#search {
+div#toolbar {
   padding: 8px;
   background: #eee;
   border: solid 1px #ccc;
 }
 
-form#search input#q {
+div#index div#toolbar input#q {
   width: 60%; 
 }
 
-form#search input#search {
+div#note div#toolbar input#save {
   width: 15%;
 }
 
-form#search input#new {
-  float: right;
+div#index div#toolbar input#search {
+  width: 15%;
 }
 
-#index {
-  width: 400px;
-  padding: 10px;
+div#note textarea {
+  margin-top: 8px;
+  height: 452px;
+  width: 398px;
+}
+
+div#index div#toolbar input#new {
+  float: right;
 }
 
 ul#notes li {

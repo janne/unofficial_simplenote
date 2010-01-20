@@ -1,17 +1,24 @@
 // Login on page load
 $(document).ready(function() {
-  chrome.extension.sendRequest({action: "login"}, function(success) {
-    if (success) {
-      showIndex();
-      $('div#index div#toolbar input#new').click(function() {
-        showNote();
-      });
-    } else {
-      $('#loader').hide();
-      $('#status').html("Please check username and password!");
-    }
-  });
-  $('input#q').focus();
+  if (!localStorage.email || !localStorage.password) {
+    $('#loader').hide();
+    $('#toolbar').hide();
+    $('#status').html("Please enter your Simplenote credentials in Options!");
+  } else {
+    chrome.extension.sendRequest({action: "login"}, function(success) {
+      if (success) {
+        showIndex();
+        $('div#index div#toolbar input#new').click(function() {
+          showNote();
+        });
+      } else {
+        $('#loader').hide();
+        $('#toolbar').hide();
+        $('#status').html("Please correct your username and password!");
+      }
+    });
+    $('input#q').focus();
+  }
 });
 
 function showIndex() {

@@ -3,7 +3,7 @@ $(document).ready(function() {
   if (!localStorage.email || !localStorage.password) {
     $('#loader').hide();
     $('#toolbar').hide();
-    $('#status').html("Please enter your <a target='_blank' href='http://simplenoteapp.com/home2/'>Simplenote</a> credentials in Options!");
+    $('#status').html("Please <a target='_blank' href='http://simplenoteapp.com/create-account'>sign up</a> to Simplenote and then enter your credentials in <a target='_blank' href='options.html'>Options</a>");
   } else {
     chrome.extension.sendRequest({action: "login"}, function(success) {
       if (success) {

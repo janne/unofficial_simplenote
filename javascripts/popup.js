@@ -32,7 +32,8 @@ function showIndex(query) {
     $('#notes').empty();
   }
   chrome.extension.sendRequest(req, function(data) {
-    for(var i=0; i < (data.length > 10 ? 10 : data.length); i++) {
+    var count = 0;
+    for(var i=0; i < data.length; i++) {
       if (data[i].deleted) {
         var note = $('#' + data[i].key);
         if (note.length > 0) { note.hide(); }
@@ -46,6 +47,9 @@ function showIndex(query) {
           $('#' + data.key).unbind();
           $('#' + data.key).click(function() { showNote(this.id); });
         });
+        count += 1;
+        if (count == 10)
+          break;
       }
     }
   });

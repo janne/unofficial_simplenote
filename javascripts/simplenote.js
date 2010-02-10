@@ -28,6 +28,15 @@ var Simplenote = {
       }
     });
   },
+  search: function(query, callback) {
+    jQuery.ajax({
+      url: Simplenote.root + "search?query=" + escape(query),
+      dataType: "json",
+      success: function(data) {
+        callback(data['Response']['Results']);
+      }
+    });
+  },
   note: function(key, callback) {
     jQuery.ajax({
       url: Simplenote.root + "note?key=" + key,

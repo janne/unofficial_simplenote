@@ -11,6 +11,9 @@ $(document).ready(function() {
         $('div#index div#toolbar input#new').click(function() {
           showNote();
         });
+        $('div#index div#toolbar input#search').click(function() {
+          showIndex($('#q').val());
+        });
       } else {
         $('#loader').hide();
         $('#toolbar').hide();
@@ -21,9 +24,14 @@ $(document).ready(function() {
   }
 });
 
-function showIndex() {
+function showIndex(query) {
   $('#loader').show();
-  chrome.extension.sendRequest({action: "index"}, function(data) {
+  var req = { action: "index" }
+  if(query) {
+    req = { action: "search", query: query };
+    $('#notes').empty();
+  }
+  chrome.extension.sendRequest(req, function(data) {
     for(var i=0; i < (data.length > 10 ? 10 : data.length); i++) {
       if (data[i].deleted) {
         var note = $('#' + data[i].key);

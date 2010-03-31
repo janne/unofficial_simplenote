@@ -1,15 +1,61 @@
 body {
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display: -webkit-box;
+  font-family: Verdana, Helvetica, Arial;	
+  font-size: 2em;
+  height: 100%;
   margin: 0;
-  text-align: center;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-form {
-  margin: 10px;
+button {
+  font-size: inherit;
+}
+
+input {
+  border-color: #8D8D8D;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: inherit;
+  padding: 8px;
+  width: 18em;
+}
+
+#content {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F8F8F8), to(#E2E2E2));
+  border: 2px solid #8D8D8D;
+  border-radius: 6px;
+  -webkit-box-orient: vertical;
+  -webkit-box-shadow: 3px 3px 8px #A7A7A7;
+  padding: .5em;
+  max-width: 18.5em;  
+}
+
+#content div {
+  width: 100%;
+}
+
+#inputs {
+  padding-bottom: .5em;
+}
+
+#instructions {
+  padding-bottom: .5em;
+  font-weight: bold;
+  font-size: 105%;
+}
+
+#message {
   text-align: left;
 }
 
-label {
-  display: block;
+#status {
+  font-size: inherit;
+  opacity: 0;
+  -webkit-transition: opacity .5s linear;
 }

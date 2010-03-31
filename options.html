@@ -1,3 +1,4 @@
+<!DOCTYPE html> 
 <html>
   <head>
     <title>Simplenote Options</title>
@@ -6,19 +7,17 @@
     <script src="javascripts/jquery.js"></script>
     <script src="javascripts/options.js"></script>
   </head>
-
   <body>
-    <form>
-      <p>
-        <label for="email">Email</label>
-        <input type="text" id="email"></input>
-      </p>
-      <p>
-        <label for="password">Password</label>
-        <input type="password" id="password"></input>
-      </p>
-      <input type="submit" value="Save" onclick="save_options()"></input>
-    </form>
-    <div id="status"></div>
+    <div id="content">
+      <div id="instructions">Enter your Simplenote account information below.</div>
+      <div id="inputs">
+        <input type="text" placeholder="Email Address" id="email">
+        <input type="password" placeholder="Password" id="password">
+      </div>
+      <div id="message">
+        <button onclick="save_options(1500)">Save</button>
+        <span id=status></span>
+      </div> 
+    </div>
   </body>
 </html>

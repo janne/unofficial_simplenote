@@ -1,9 +1,14 @@
-// Login on page load
+// Log in on page load
 $(document).ready(function() {
+  var signUpLink =
+      "<a href='http://simplenoteapp.com/create-account'>sign up</a>";
+  var optionsLink =
+      "<a href='options.html'>options page</a>";
+
   if (!localStorage.email || !localStorage.password) {
-    $('#loader').hide();
-    $('#toolbar').hide();
-    $('#status').html("Please <a target='_blank' href='http://simplenoteapp.com/create-account'>sign up</a> to Simplenote and then enter your credentials in <a target='_blank' href='options.html'>Options</a>");
+    var message = "Please " + signUpLink + " for a Simplenote account and" +
+        "then enter your credentials on the " + optionsLink + ".";
+    displayStatusMessage(message);
   } else {
     chrome.extension.sendRequest({action: "login"}, function(success) {
       if (success) {
@@ -14,15 +19,30 @@ $(document).ready(function() {
         $('div#index div#toolbar input#search').click(function() {
           showIndex($('#q').val());
         });
+        $('input#q').focus();
       } else {
-        $('#loader').hide();
-        $('#toolbar').hide();
-        $('#status').html("Please correct your username and password!");
+        var message = "Please correct your username and password on the" +
+            optionsLink + "!";
+        displayStatusMessage(message);
       }
     });
-    $('input#q').focus();
   }
 });
+
+/*
+ * Displays a status message.
+ * @param message The HTML content of the status message to display. All links
+ *     in the message are be adjusted to open in a new window and close the
+ * ß    popup.
+ */
+function displayStatusMessage(message) {
+    $('#loader').hide();
+    $('#toolbar').hide();
+    $('#status').html(message);
+    links = $('a');
+    links.attr('target', '_blank');
+    links.click(function() { window.close(); });
+}
 
 function showIndex(query) {
   $('#loader').show();

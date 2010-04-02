@@ -1,6 +1,6 @@
 {
   "name": "Simplenote",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Access your Simplenote notes",
   "icons": {
     "128": "images/simplenote.png"

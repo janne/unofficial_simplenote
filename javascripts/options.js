@@ -17,9 +17,9 @@ function save_options(ms) {
 
   var status = $("#status");
   if (localStorage && localStorage.email && localStorage.password) {
-    status.html("Account saved.");
+    status.html("Account saved");
   } else {
-    status.html("Save failed.");
+    status.html("Save failed");
   }
 
   status.css("opacity", 1);

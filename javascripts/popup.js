@@ -6,8 +6,7 @@ $(document).ready(function() {
       "<a href='options.html'>options page</a>";
 
   if (!localStorage.email || !localStorage.password) {
-    var message = "Please " + signUpLink + " for a Simplenote account and" +
-        "then enter your credentials on the " + optionsLink + ".";
+    var message = "Please " + signUpLink + " for a Simplenote account and enter your credentials on the " + optionsLink + ".";
     displayStatusMessage(message);
   } else {
     chrome.extension.sendRequest({action: "login"}, function(success) {
@@ -21,8 +20,7 @@ $(document).ready(function() {
         });
         $('input#q').focus();
       } else {
-        var message = "Please correct your username and password on the" +
-            optionsLink + "!";
+        var message = "Please correct your username and password on the " + optionsLink + "!";
         displayStatusMessage(message);
       }
     });
